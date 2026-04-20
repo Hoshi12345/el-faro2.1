@@ -1,0 +1,671 @@
+/* Fuentes personalizadas */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* Variables Bulma */
+:root {
+    --bulma-primary-h: 207;
+    --bulma-primary-s: 69%;
+    --bulma-primary-l: 58%;
+    --bulma-info-h: 207;
+    --bulma-info-s: 69%;
+    --bulma-info-l: 58%;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #f5f5f5;
+}
+
+/* LOGO */
+.logo-faro {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+figure.image.is-64x64 {
+    flex-shrink: 0;
+}
+
+/* Reloj */
+#reloj {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* NAV */
+.navbar.is-info.is-light {
+    background-color: #5ba3e8 !important;
+}
+
+.navbar.is-info.is-light .navbar-item {
+    color: #000 !important;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+
+.navbar.is-info.is-light .navbar-item:hover {
+    font-weight: bolder;
+    text-decoration: none;
+    background-color: #4a90e2 !important;
+}
+
+/* TÍTULOS DE SECCIÓN */
+.title.is-2, .title.is-3, .title.is-4, .title.is-5 {
+    color: #1a1a1a !important;
+}
+
+.subtitle {
+    color: #000000 !important;
+}
+
+/* === ARTÍCULOS - HOVER CORREGIDO === */
+.box.articulo-card {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Por defecto: Todo NEGRO */
+.box.articulo-card .title,
+.box.articulo-card .subtitle,
+.box.articulo-card p,
+.box.articulo-card span:not(.tag),
+.box.articulo-card strong,
+.box.articulo-card time {
+    color: #000000 !important;
+}
+
+/* Fechas en gris por defecto */
+.box.articulo-card .has-text-grey {
+    color: #666666 !important;
+}
+
+/* === HOVER: FONDO NEGRO + TÍTULOS AZUL OSCURO === */
+.box.articulo-card:hover {
+    background-color: #000000 !important;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* En hover: Títulos AZUL OSCURO para que resalten */
+.box.articulo-card:hover .title {
+    color: #4a90e2 !important;
+}
+
+/* Resto de textos en blanco */
+.box.articulo-card:hover .subtitle,
+.box.articulo-card:hover p,
+.box.articulo-card:hover span:not(.tag),
+.box.articulo-card:hover strong,
+.box.articulo-card:hover time {
+    color: #ffffff !important;
+}
+
+/* Fechas en gris claro en hover */
+.box.articulo-card:hover .has-text-grey {
+    color: #aaaaaa !important;
+
+}
+
+
+/* === FORMULARIOS - FONDO BLANCO + LETRAS NEGRAS === */
+#formularioArticulo,
+#formularioContacto {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+#formularioArticulo .title,
+#formularioArticulo .label,
+#formularioContacto .title,
+#formularioContacto .label {
+    color: #000000 !important;
+}
+
+#formularioArticulo .input,
+#formularioArticulo .textarea,
+#formularioArticulo .select select,
+#formularioContacto .input,
+#formularioContacto .textarea {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #dbdbdb;
+}
+
+#formularioArticulo .input::placeholder,
+#formularioArticulo .textarea::placeholder,
+#formularioContacto .input::placeholder,
+#formularioContacto .textarea::placeholder {
+    color: #999999;
+}
+
+/* Contadores */
+.contador-articulos {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Video y Audio */
+audio.is-fullwidth {
+    width: 100%;
+}
+
+/* Footer */
+.footer {
+    background-color: #e0e0e0 !important;
+    color: #333333 !important;
+}
+
+.footer .title {
+    color: #1a1a1a !important;
+}
+
+.footer a {
+    color: #4a90e2;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* === EMAIL Y TELÉFONO EN EL FOOTER - NEGRO === */
+.footer .column p,
+.footer .column p strong {
+    color: #000000 !important;
+}
+
+.footer .column p {
+    color: #000000 !important;
+}
+
+/* Modal */
+.modal-card {
+    max-width: 800px;
+}
+
+/* Alturas cards */
+#grid-destacados .box.articulo-card {
+    min-height: 280px;
+}
+
+#grid-otros .box.articulo-card {
+    min-height: 200px;
+}
+
+#grid-inicio .box,
+#grid-deportes .box,
+#grid-negocios .box {
+    min-height: 180px;
+}
+
+/* Notificaciones */
+.notification {
+    color: #1a1a1a !important;
+}
+
+.notification.is-warning {
+    background-color: #ffdd57;
+    color: #1a1a1a !important;
+}
+
+.notification.is-info {
+    background-color: #209cee;
+    color: #ffffff !important;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET GRANDE (max-width: 1024px)
+   ========================================================= */
+@media screen and (max-width: 1024px) {
+    /* Cards más compactas */
+    #grid-destacados .box.articulo-card {
+        min-height: 240px;
+    }
+
+    #grid-otros .box.articulo-card {
+        min-height: 180px;
+    }
+
+    #grid-inicio .box,
+    #grid-deportes .box,
+    #grid-negocios .box {
+        min-height: 160px;
+    }
+
+    /* Modal más pegado a los bordes */
+    .modal-card {
+        margin: 20px;
+        max-height: calc(100vh - 40px);
+    }
+
+    /* Footer columnas más juntas */
+    .footer {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET (max-width: 768px)
+   ========================================================= */
+@media screen and (max-width: 768px) {
+    /* === GRIDS A 2 COLUMNAS === */
+    #grid-destacados,
+    #grid-otros,
+    #grid-inicio,
+    #grid-deportes,
+    #grid-negocios {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    /* Resetear columnas de Bulma para que quepan en el grid */
+    #grid-destacados .column,
+    #grid-otros .column,
+    #grid-inicio .column,
+    #grid-deportes .column,
+    #grid-negocios .column {
+        width: 100% !important;
+        padding: 0.5rem !important;
+    }
+
+    /* === HEADERS CENTRADOS EN TABLET === */
+    header .level-left,
+    header .level-right {
+        justify-content: center;
+        text-align: center;
+    }
+
+    header .level-left .level-item {
+        margin-bottom: 0.5rem;
+    }
+
+    header .title.is-4 {
+        text-align: center;
+    }
+
+    #destacados .title.is-2,
+    #otros-articulos .title.is-3,
+    #inicio .title.is-3,
+    #deportes .title.is-3,
+    #negocios .title.is-3,
+    #contacto .title.is-3,
+    #avisos .title.is-3 {
+        text-align: center !important;
+    }
+
+    /* Navbar */
+    .navbar.is-info.is-light .navbar-item {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Level */
+    .level-left, .level-right {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .level-left .level-item {
+        margin-bottom: 10px;
+    }
+
+    .level-right .level-item {
+        margin-bottom: 10px;
+    }
+
+    /* Títulos más pequeños */
+    .title.is-2 {
+        font-size: 1.8rem;
+    }
+
+    .title.is-3 {
+        font-size: 1.5rem;
+    }
+
+    .title.is-4 {
+        font-size: 1.2rem;
+    }
+
+    .title.is-5 {
+        font-size: 1.1rem;
+    }
+
+    /* Cards */
+    #grid-destacados .box.articulo-card {
+        min-height: 200px;
+    }
+
+    #grid-otros .box.articulo-card {
+        min-height: 160px;
+    }
+
+    #grid-inicio .box,
+    #grid-deportes .box,
+    #grid-negocios .box {
+        min-height: 140px;
+    }
+
+    /* Formularios */
+    #formularioArticulo,
+    #formularioContacto {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    /* Footer */
+    .footer .column {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .footer .column:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Contador centrado */
+    .contador-articulos {
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL (max-width: 480px)
+   ========================================================= */
+@media screen and (max-width: 480px) {
+    /* === GRIDS A 1 COLUMNA === */
+    #grid-destacados,
+    #grid-otros,
+    #grid-inicio,
+    #grid-deportes,
+    #grid-negocios {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+    }
+
+    /* Resetear columnas de Bulma para móvil */
+    #grid-destacados .column,
+    #grid-otros .column,
+    #grid-inicio .column,
+    #grid-deportes .column,
+    #grid-negocios .column {
+        width: 100% !important;
+        padding: 0.5rem !important;
+        margin: 0 !important;
+    }
+
+    /* === HEADERS CENTRADOS EN MÓVIL === */
+    header .level {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    header .level-left,
+    header .level-right {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    header .level-left .level-item {
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+    }
+
+    header .title.is-4 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    #destacados .title.is-2,
+    #otros-articulos .title.is-3,
+    #inicio .title.is-3,
+    #deportes .title.is-3,
+    #negocios .title.is-3,
+    #contacto .title.is-3,
+    #avisos .title.is-3 {
+        text-align: center !important;
+        font-size: 1.4rem;
+    }
+
+    /* Logo más pequeño */
+    figure.image.is-64x64 {
+        width: 48px;
+        height: 48px;
+    }
+
+    /* Navbar */
+    .navbar.is-info.is-light {
+        padding: 0.5rem;
+    }
+
+    .navbar-brand {
+        min-height: 2.5rem;
+    }
+
+    .navbar-burger {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    /* Títulos */
+    .title.is-2 {
+        font-size: 1.5rem;
+    }
+
+    .title.is-3 {
+        font-size: 1.3rem;
+    }
+
+    .title.is-4 {
+        font-size: 1.1rem;
+    }
+
+    .title.is-5 {
+        font-size: 1rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    /* Cards sin altura fija */
+    #grid-destacados .box.articulo-card,
+    #grid-otros .box.articulo-card,
+    #grid-inicio .box,
+    #grid-deportes .box,
+    #grid-negocios .box {
+        min-height: auto;
+        padding: 1rem;
+    }
+
+    /* Cards en columna */
+    .box.articulo-card .media {
+        flex-direction: column;
+    }
+
+    .box.articulo-card .media-left {
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+    }
+
+    .box.articulo-card .media-left .image {
+        width: 100% !important;
+    }
+
+    .box.articulo-card .media-left img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    /* Formularios */
+    #formularioArticulo,
+    #formularioContacto {
+        padding: 1rem;
+        margin: 0.5rem;
+        border-radius: 6px;
+    }
+
+    #formularioArticulo .input,
+    #formularioArticulo .textarea,
+    #formularioArticulo .select select,
+    #formularioContacto .input,
+    #formularioContacto .textarea {
+        font-size: 16px; /* Evita zoom en iOS */
+        min-height: 44px;
+    }
+
+    #formularioArticulo .button,
+    #formularioContacto .button {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    /* Modal */
+    .modal-card {
+        width: 95%;
+        margin: 10px;
+        max-height: calc(100vh - 20px);
+    }
+
+    .modal-card-head,
+    .modal-card-foot {
+        padding: 1rem;
+    }
+
+    .modal-card-body {
+        padding: 1rem;
+    }
+
+    /* Notificaciones */
+    .notification {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Contador */
+    .contador-articulos {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    /* Reloj */
+    #reloj {
+        font-size: 0.85rem;
+        min-width: 80px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - MÓVIL PEQUEÑO (max-width: 360px)
+   ========================================================= 
+@media screen and (max-width: 360px) {
+    /* === GRIDS A 1 COLUMNA (refuerzo) === */
+    #grid-destacados,
+    #grid-otros,
+    #grid-inicio,
+    #grid-deportes,
+    #grid-negocios {
+        grid-template-columns: 1fr !important;
+    }
+
+    .title.is-2 {
+        font-size: 1.3rem;
+    }
+
+    .title.is-3 {
+        font-size: 1.15rem;
+    }
+
+    .title.is-4 {
+        font-size: 1rem;
+    }
+
+    .box.articulo-card {
+        padding: 0.75rem;
+    }
+
+    .box.articulo-card .media-left img {
+        height: 150px;
+    }
+
+    #formularioArticulo,
+    #formularioContacto {
+        padding: 0.75rem;
+        margin: 0.25rem;
+    }
+/* ==========================================
+   HEADER MÓVIL: Logo, título y reloj en columna
+   ========================================== */
+@media (max-width: 768px) {
+  header .level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* "Aplana" los contenedores internos para que sus hijos se comporten como hermanos */
+  header .level-left,
+  header .level-right {
+    display: contents;
+  }
+
+  header .level-item {
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Orden específico:
+     1. Logo (primer hijo de level-left)
+     2. Título (segundo hijo de level-left)
+     3. Reloj (hijo de level-right)
+  */
+  header .level-left .level-item:first-child {
+    order: 1;
+  }
+
+  header .level-left .level-item:last-child {
+    order: 2;
+  }
+
+  header .level-right .level-item {
+    order: 3;
+  }
+
+  /* Centrado y espaciado del título */
+  header .title {
+    margin: 0;
+    text-align: center;
+  }
+
+  /* La imagen se mantiene centrada */
+  header .image {
+    margin: 0 auto;
+  }
+
+  /* Ajuste opcional: reducir tamaño de fuente del reloj */
+  #reloj {
+    font-size: 0.9rem;
+  }
+}

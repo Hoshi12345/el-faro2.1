@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periódico El Faro - Nueva versión</title>
+
+    <!-- Fuente y Bulma -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- === NUEVA SECCIÓN SUPERIOR DE AVISOS === -->
+<div class="has-background-warning has-text-centered py-2">
+    <span class="icon-text">
+        <span class="icon">📢</span>
+        <span><strong>Aviso importante:</strong> Nuevos horarios de atención al público. ¡Suscríbete a nuestro newsletter!</span>
+    </span>
+</div>
+
+<!-- HEADER CORREGIDO CON BULMA -->
+<!-- HEADER MÓVIL (visible solo hasta tamaño tablet) -->
+<header class="has-background-info py-4 is-hidden-tablet">
+  <div class="container has-text-centered">
+    <figure class="image is-64x64 is-inline-block">
+      <img src="https://img.freepik.com/vector-premium/pintura-faro-cielo-azul-ola-fondo_646696-5260.jpg" 
+           alt="Logo El Faro" 
+           class="is-rounded logo-faro">
+    </figure>
+    <h1 class="title is-4 has-text-black mt-2">Bienvenidos a periódico El Faro</h1>
+    <div id="reloj-movil" class="tag is-dark is-medium mt-2">00:00:00</div>
+  </div>
+</header>
+
+<!-- HEADER ESCRITORIO/TABLET (oculto en móvil) -->
+<header class="has-background-info py-4 is-hidden-mobile">
+  <div class="container">
+    <div class="level is-mobile is-align-items-center">
+      <div class="level-left">
+        <div class="level-item">
+          <figure class="image is-64x64 mr-3">
+            <img src="https://img.freepik.com/vector-premium/pintura-faro-cielo-azul-ola-fondo_646696-5260.jpg" 
+                 alt="Logo El Faro" 
+                 class="is-rounded logo-faro">
+          </figure>
+        </div>
+        <div class="level-item">
+          <h1 class="title is-4 has-text-black">Bienvenidos a periódico El Faro</h1>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <div id="reloj" class="tag is-dark is-medium">00:00:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV CON BULMA -->
+<nav class="navbar is-info is-light" role="navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item has-text-weight-semibold" href="#inicio">INICIO</a>
+                <a class="navbar-item has-text-weight-semibold" href="#deportes">DEPORTES</a>
+                <a class="navbar-item has-text-weight-semibold" href="#negocios">NEGOCIOS</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <button id="btnMostrarFormArticulo" class="button is-white is-outlined">➕ Agregar Nuevo Artículo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <!-- Formulario para agregar artículos -->
+    <div id="formularioArticulo" class="box" style="display: none;">
+        <h3 class="title is-5">Nuevo Artículo</h3>
+        <form id="formNuevoArticulo">
+            <div class="field">
+                <label class="label">Sección:</label>
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select id="seccionArticulo" required>
+                            <option value="inicio">Inicio - Noticias Generales</option>
+                            <option value="deportes">Deportes</option>
+                            <option value="negocios">Negocios</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Título del artículo:</label>
+                <div class="control"><input type="text" id="tituloArticulo" class="input" required></div>
+            </div>
+            <div class="field">
+                <label class="label">Categoría:</label>
+                <div class="control"><input type="text" id="categoriaArticulo" class="input" required></div>
+            </div>
+            <div class="field">
+                <label class="label">Descripción:</label>
+                <div class="control"><textarea id="descripcionArticulo" class="textarea" rows="4" required></textarea></div>
+            </div>
+            <div class="field">
+                <label class="label">Fuente (opcional):</label>
+                <div class="control"><input type="text" id="fuenteArticulo" class="input"></div>
+            </div>
+            <div class="field is-grouped">
+                <div class="control"><button type="submit" class="button is-primary">Publicar Artículo</button></div>
+                <div class="control"><button type="button" id="btnCancelarForm" class="button is-light">Cancelar</button></div>
+            </div>
+        </form>
+    </div>
+
+    <!-- SECCIÓN: ARTÍCULOS DESTACADOS -->
+    <section id="destacados" class="mb-6">
+        <h2 class="title is-2 has-text-centered">🔥 Noticias Destacadas</h2>
+        <div id="grid-destacados" class="columns is-multiline">
+            <!-- Aquí se cargarán los 3 artículos más nuevos -->
+        </div>
+    </section>
+
+    <!-- SECCIÓN: OTROS ARTÍCULOS -->
+    <section id="otros-articulos" class="mb-6">
+        <h2 class="title is-3">📰 Otras noticias</h2>
+        <div id="grid-otros" class="columns is-multiline">
+            <!-- Aquí el resto de artículos -->
+        </div>
+    </section>
+
+    <!-- SECCIONES ORIGINALES -->
+    <section id="inicio" class="mb-6">
+        <h2 class="title is-3">Sección Inicio - Noticias generales</h2>
+        <div class="tags has-addons mb-3">
+            <span class="tag is-dark">Cantidad de artículos:</span>
+            <span class="tag is-info" id="contador-inicio">0</span>
+        </div>
+        <div id="grid-inicio" class="columns is-multiline"></div>
+        <!-- Video y audio -->
+        <div class="columns mt-5">
+            <div class="column is-half">
+                <figure class="image is-16by9">
+                    <video controls poster="https://www.mineduc.cl/wp-content/uploads/2024/03/liceo-maritimo-valparaiso.jpg" class="has-ratio">
+                        <source src="YTDown.com_YouTube_Media_WFmIBPs8hvY_002_360p.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </div>
+            <div class="column is-half is-flex is-align-items-center">
+                <audio controls class="is-fullwidth">
+                    <source src="tenkyu.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <section id="deportes" class="mb-6">
+        <h2 class="title is-3">Sección Deportes</h2>
+        <div class="tags has-addons mb-3">
+            <span class="tag is-dark">Cantidad de artículos:</span>
+            <span class="tag is-info" id="contador-deportes">0</span>
+        </div>
+        <div id="grid-deportes" class="columns is-multiline"></div>
+    </section>
+
+    <section id="negocios" class="mb-6">
+        <h2 class="title is-3">Sección Negocios</h2>
+        <div class="tags has-addons mb-3">
+            <span class="tag is-dark">Cantidad de artículos:</span>
+            <span class="tag is-info" id="contador-negocios">0</span>
+        </div>
+        <div id="grid-negocios" class="columns is-multiline"></div>
+    </section>
+
+    <!-- SECCIONES SEPARADAS DEL MENÚ -->
+    <section id="contacto" class="mb-6">
+        <h2 class="title is-3">Contacto</h2>
+        <button id="btnMostrarContacto" class="button is-link">📧 Escribir Mensaje</button>
+        <form id="formularioContacto" class="box mt-4" style="display: none; max-width: 600px;">
+            <div class="field">
+                <label class="label">Nombre:</label>
+                <div class="control"><input type="text" id="nombreContacto" class="input" required></div>
+            </div>
+            <div class="field">
+                <label class="label">Mensaje:</label>
+                <div class="control"><textarea id="mensajeContacto" class="textarea" rows="5" required></textarea></div>
+            </div>
+            <button type="submit" class="button is-success">Enviar Mensaje</button>
+            <p id="mensajeConfirmacion" class="help is-success mt-2"></p>
+        </form>
+    </section>
+
+    <!-- Sección Avisos adicional -->
+    <section id="avisos" class="mb-6">
+        <h2 class="title is-3">📢 Avisos y Eventos</h2>
+        <div class="notification is-warning">Próximo evento: Feria del Libro - 20 de abril. ¡Participa!</div>
+        <div class="notification is-info">Vacaciones de invierno: horarios especiales del 10 al 20 de julio.</div>
+    </section>
+</main>
+
+<!-- FOOTER CON BULMA -->
+<footer class="footer has-background-grey-lighter">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <h4 class="title is-5">El Faro</h4>
+                <p>Periódico digital con noticias actualizadas, fundado en 1995.</p>
+            </div>
+            <div class="column">
+                <h4 class="title is-5">Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#inicio" class="has-text-info">Inicio</a></li>
+                    <li><a href="#deportes" class="has-text-info">Deportes</a></li>
+                    <li><a href="#negocios" class="has-text-info">Negocios</a></li>
+                    <li><a href="#contacto" class="has-text-info">Contacto</a></li>
+                    <li><a href="#avisos" class="has-text-info">Avisos</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4 class="title is-5">Síguenos</h4>
+                <div class="buttons are-small">
+                    <a class="button is-dark">Facebook</a>
+                    <a class="button is-dark">Twitter</a>
+                    <a class="button is-dark">Instagram</a>
+                </div>
+            </div>
+            <div class="column">
+                <h4 class="title is-5">Contacto</h4>
+                <p><strong>Email:</strong> contacto@elfaro.cl</p>
+                <p><strong>Teléfono:</strong> +56 2 1234 5678</p>
+            </div>
+        </div>
+        <div class="has-text-centered mt-4">
+            <p>© 2026 El Faro - Todos los derechos reservados</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Modal para leer artículo completo -->
+<div id="modalArticulo" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title" id="modalTitulo">Título del artículo</p>
+            <button class="delete" aria-label="close" id="closeModal"></button>
+        </header>
+        <section class="modal-card-body" id="modalContenido">
+            <p>Contenido del artículo...</p>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success" id="closeModalFooter">Cerrar</button>
+        </footer>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+</body>
+</html>
